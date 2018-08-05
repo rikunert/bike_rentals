@@ -146,7 +146,7 @@ df_cost = pd.DataFrame(data={'Deezer': [(i//30 + 1) * 1.5 for i in range(duratio
                         'Lidl':[(i//30 + 1) * 1.5 for i in range(30)] + [((i//30 + 1) * 1)+1.5 for i in range(30, duration)],
                         'Mo-Bike':[(i//20 + 1) * 0.5 for i in range(duration)],
                         'Ofo':[(i//30 + 1) * 0.8 for i in range(duration)],
-                        'Lime-E':[(i//1 + 1) * 0.15 for i in range(duration)],
+                        'Lime-E':[(i//1 + 1) * 0.15 + 1 for i in range(duration)],
                         'Byke':[(i//30 + 1) * 0.5 for i in range(duration)],
                         'Donkey':[(i//30 + 1) * 1.25 for i in range(duration)],
                         'O-Bike':[(i//30 + 1) * 1 for i in range(duration)]})

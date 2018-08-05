@@ -9,7 +9,7 @@ weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
 plt.style.use('fivethirtyeight')
 
 # data gathering
-df = pd.read_excel('C:\\Users\\Richard\\Dropbox\\Bike-sharing_sample.xlsx',
+df = pd.read_excel('https://github.com/rikunert/bike_rentals/raw/master/Bike-sharing_sample.xlsx',
                    skiprows=range(4))
 df.head()
 

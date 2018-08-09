@@ -150,6 +150,7 @@ df_cost = pd.DataFrame(data={'Deezer': [(i//30 + 1) * 1.5 for i in range(duratio
                         'Byke':[(i//30 + 1) * 0.5 for i in range(duration)],
                         'Donkey':[(i//30 + 1) * 1.25 for i in range(duration)],
                         'O-Bike':[(i//30 + 1) * 1 for i in range(duration)]})
+df_cost = df_cost[df.columns[5:-2]]#  reorder columns
 df_cost_extra = df_cost.copy()
 df_cost_extra['Lidl'] = df_cost_extra['Lidl'] + 3
 df_cost_extra['Mo-Bike'] = df_cost_extra['Mo-Bike'] + 2
@@ -160,13 +161,23 @@ def cost_plotter(df):
     fig_cost, ax_cost = plt.subplots(tight_layout=True, figsize=[10, 6])
     df.plot(drawstyle="steps-post", linewidth=4, color=colours,
              ax=ax_cost,
-             alpha=0.8,
              legend=False)
     ax_cost.set(xlabel='Rental duration (minutes)',
        ylabel='Cost without deposit or subscription (EUR)',
        ylim=[0, 8],
        title='Price differences between rental bikes in Berlin')
     ax_cost.grid(visible=False, axis='x')
+
+    # additional plotting with different line styles
+    lstyle = [':', ':', ':',
+                 '-', '-', '-',
+                 ':', '-', '-']
+    for i in [1, 2, 0]:
+        df.iloc[:, i].plot(drawstyle="steps-post",
+                    linewidth=4, color=colours[i],
+                    linestyle=lstyle[i],
+            ax=ax_cost,
+            legend=False)
 
     # new legend
     x_pos = ax_cost.get_xticks()
